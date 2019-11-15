@@ -17,3 +17,12 @@ After analyzing some benchmarks of programming languages on common programming t
 - **Fast:** The most of the Haskell benchmarks shows that the Haskell performance is as good as as C's performance when compiled using GHC (Glasgow Haskell Compiler), and in some cases, it can be **even faster**.
 
 - **Multicore:** Haskell has a fantastic Multicore implementation, thats one of the reason it sometimes can be faster than C.
+
+#### Benchmarks
+All the benchmarks are done using an **Intel Core i5 8250u** CPU running on OpenSuse Tumbleweed (Linux 5.3.8-1 kernel) and the following compiler versions:
+ - Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+ - gcc (SUSE Linux) 9.2.1 20190903 [gcc-9-branch revision 275330]
+ - Glasgow Haskell Compiler, Version 8.6.5, stage 2 booted by GHC version 8.4.3
+ - GNU bash, version 5.0.11(1)-release (x86_64-suse-linux-gnu)
+
+![Benchmarks](./benchmarks.png)
