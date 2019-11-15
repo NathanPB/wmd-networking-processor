@@ -30,7 +30,7 @@ All the benchmarks are done using an **Intel Core i5 8250u** CPU running on Open
 ## How it Works
 The main process of this module is given a raw GamingProfile on its input and a base GamingProfile to make the comparisons, it will compare the Tags and Hours fields.
 
-### Input:
+### Input Layer
 The gaming profile that the other ones will be compared with should be given via command line parameters:
 ```
     --tags 4390119fcd7f,6cd79977bcf8
