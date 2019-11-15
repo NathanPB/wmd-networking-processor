@@ -26,3 +26,35 @@ All the benchmarks are done using an **Intel Core i5 8250u** CPU running on Open
  - GNU bash, version 5.0.11(1)-release (x86_64-suse-linux-gnu)
 
 ![Benchmarks](./benchmarks.png)
+
+## How it Works
+The main process of this module is given a raw GamingProfile on its input and a base GamingProfile to make the comparisons, it will compare the Tags and Hours fields.
+
+### Input:
+The gaming profile that the other ones will be compared with should be given via command line parameters:
+```
+    --tags 4390119fcd7f,6cd79977bcf8
+    --hours 7,8,9,10
+```
+
+The list elements must be separated by a single ``,`` (comma).
+
+
+The Gaming Profiles to be compared with the base one should be given via ``stdin``, separated by Unix Line Break (``/n``, byte ``0x0A``). ETX (``0x03``) means that is no more profiles to input.
+
+The input data must follow the **Gaming Profile Model**.
+
+#### Gaming Profile Model
+```
+<12 bytes profile ID>, [Tag 0 (12 bytes)] ... [Tag n], [Hour 0] ... [Hour 23]
+```
+
+Each argument should be separated by ``, `` (comma + blank space), and each element of the lists (tags or hours) should be separated by a single blank space.
+
+E.g:
+```507f1f77bcf8, 6cd799439011 72f81d9fcd7f, 0 1 2 3 23```
+
+The example above means a profile with:
+ - Id: ``507f1f77bcf8``
+ - Tags: ``6cd799439011`` and ``72f81d9fcd7f``
+- Hours: ``0``, ``1``, ``2``, ``3`` and ``23``
