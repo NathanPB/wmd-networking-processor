@@ -1,4 +1,4 @@
-# WheresMyDuo Networking Processor Specification v1.0.0
+# WheresMyDuo Networking Processor Specification
 
 ## Target
 The target of the Networking Processor Module is to process thousands of different WheresMyDuo Gaming Profiles per second and find the ones who are promising about social interaction based in pre-defined conditions.
