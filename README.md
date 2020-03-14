@@ -40,7 +40,7 @@ The gaming profile that the other ones will be compared with should be given via
 The list elements must be separated by a single ``,`` (comma).
 
 
-The Gaming Profiles to be compared with the base one should be given via ``stdin``, separated by Unix Line Break (``/n``, byte ``0x0A``). ETX (``0x03``) means that is no more profiles to input.
+The Gaming Profiles to be compared with the base one should be given via ``stdin``, separated by Unix Line Break (``/n``, byte ``0x0A``). ETX (``0x03``) means that there is no more profiles to input.
 
 The input data must follow the **Gaming Profile Model**.
 
