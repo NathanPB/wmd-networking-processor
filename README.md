@@ -49,12 +49,14 @@ The input data must follow the **Gaming Profile Model**.
 <12 bytes profile ID>, [Tag 0 (12 bytes)] ... [Tag n], [Hour 0] ... [Hour 23]
 ```
 
-Each argument should be separated by ``, `` (comma + blank space), and each element of the lists (tags or hours) should be separated by a single blank space.
+Each argument should be separated by ``, `` (comma followed by blank space), and each element of the tag list should be separated by a single blank space.
+
+The Hours are formed by a 256 bit hexadecimal unsigned big-endian integer (16 hexadecimal characters). The state of the *n*th bit means that the *n*th hour of the week is marked as an available hour to the user to play. The left zeroes can be omitted.
 
 E.g:
-```507f1f77bcf8, 6cd799439011 72f81d9fcd7f, 0 1 2 3 23```
+```507f1f77bcf8, 6cd799439011 72f81d9fcd7f, 40000F```
 
 The example above means a profile with:
  - Id: ``507f1f77bcf8``
  - Tags: ``6cd799439011`` and ``72f81d9fcd7f``
-- Hours: ``0``, ``1``, ``2``, ``3`` and ``23``
+ - Hours: ``0``, ``1``, ``2``, ``3`` and ``23``
