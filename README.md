@@ -64,3 +64,31 @@ The example above means a profile with:
  - Id: ``507f1f77bcf8``
  - Tags: ``6cd799439011`` and ``72f81d9fcd7f``
  - Hours: ``0``, ``1``, ``2``, ``3`` and ``23``
+
+ ### Processing Layer
+
+ After the data is processed the networking processor would give a *social proximity ratio*, that consists in an 32bit signed integer that represents how close two Gaming Profile are in social levels. The higher its value is, the higher chance of those users being suggested to each other.
+
+ #### Mathematical Concept
+
+ The social proximity ratio is obtained with mainly **set theory** concepts, it is based in the amount of tags and hours that the users share between each other.
+
+##### Tag Containment Ratio
+
+The tag containment ratio is described by ``ƒ(A, B) := |A ∩ B| - |A ⊖ B|``. It represents the difference of the tags between two profiles.
+
+ For instance, given three example of Gaming Profiles, being them:
+
+ - Profile 01: ``{A, C, F}``
+ - Profile 02: ``{B, C, D, F}``
+ - Profile 03: ``{B, E, F}``
+
+Looking into the sets of the tags:
+![Example Set of the tags of a profile](./assets/profile-tags-set-example.png)
+
+Then, applying the formula:
+- ``ƒ(Profile 01, Profile 02)`` = ``|{C, F}| - |{A, B, D}|`` = ``2 - 3 = -1``
+- ``ƒ(Profile 01, Profile 03)`` = ``|{F}| - |{A, B, C, E}|`` = ``1 - 4 = -3``
+- ``ƒ(Profile 02, Profile 03)`` = ``|{B, F}| - |{C, D, E}|`` = ``2 - 3 = -1``
+
+Note that the arguments order is not important: ``ƒ(Profile 01, Profile 02) = ƒ(Profile 02, Profile 01)``
