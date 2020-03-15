@@ -34,7 +34,7 @@ The main process of this module is given a raw GamingProfile on its input and a 
 The gaming profile that the other ones will be compared with should be given via command line parameters:
 ```
     --tags 4390119fcd7f,6cd79977bcf8
-    --hours 7,8,9,10
+    --hours 780
 ```
 
 The list elements must be separated by a single ``,`` (comma).
@@ -44,14 +44,18 @@ The Gaming Profiles to be compared with the base one should be given via ``stdin
 
 The input data must follow the **Gaming Profile Model**.
 
+#### Hours Input Model
+
+The Hours are formed by a 256 bit hexadecimal unsigned big-endian integer (16 hexadecimal characters). The state of the *n*th bit means that the *n*th hour of the week is marked as an available hour to the user to play. The left zeroes can be omitted.
+
+E.g: ``40000F`` means that the hours ``0``, ``1``, ``2``, ``3`` and ``23`` are active.
+
 #### Gaming Profile Model
 ```
 <12 bytes profile ID>, [Tag 0 (12 bytes)] ... [Tag n], [Hour 0] ... [Hour 23]
 ```
 
 Each argument should be separated by ``, `` (comma followed by blank space), and each element of the tag list should be separated by a single blank space.
-
-The Hours are formed by a 256 bit hexadecimal unsigned big-endian integer (16 hexadecimal characters). The state of the *n*th bit means that the *n*th hour of the week is marked as an available hour to the user to play. The left zeroes can be omitted.
 
 E.g:
 ```507f1f77bcf8, 6cd799439011 72f81d9fcd7f, 40000F```
