@@ -92,3 +92,19 @@ Then, applying the formula:
 - ``ƒ(Profile 02, Profile 03)`` = ``|{B, F}| - |{C, D, E}|`` = ``2 - 3 = -1``
 
 Note that the arguments order is not important: ``ƒ(Profile 01, Profile 02) = ƒ(Profile 02, Profile 01)``
+
+### Output Layer
+
+After having all the data processed, the Output Layer will sort the results and write it to stdout in the following format:
+
+``<PROFILE_ID> <SOCIAL_PROXIMITY_RATIO>\n``
+
+Being ``<PROFILE_ID>`` the 12 bytes profile ID and ``<SOCIAL_PROXIMITY_RATIO>`` a 32 bits signed integer representing the social proximity ratio between the Gaming Profile being analyzed and the Gaming Profile identified by ``<PROFILE_ID>``.
+
+At the end of the stream, an ETX (``0x03``) will be written to stdout. This means there is no more data to be written and the process is done.
+
+#### Limiting
+
+If the ``--limit`` command line argument is supplied, the results list the the Output Layer will output will be limited by the argument provided.
+
+The argument for ``--limit`` **must** be a 32 bit signed integer equal or greater than zero.
